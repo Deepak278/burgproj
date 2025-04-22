@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="home-container">
+    <div class="welcome-message">
+        <h2>Welcome to Project Selection!</h2>
+        <p>Choose your favorite projects for this term.</p>
+    </div>
+
+    <div class="button-group">
+        <a href="{{ url_for('student') }}" class="big-button student-button">
+            Student Project Selection
+        </a>
+
+        <a href="{{ url_for('admin') }}" class="big-button admin-button">
+            Admin Login
+        </a>
+    </div>
+
+    <div class="qr-section">
+        <p>Or scan this QR code with your device:</p>
+        <img src="{{ url_for('static', filename='qr_code.png') }}" alt="QR Code" class="qr-code">
+        <p class="qr-hint">(Points to Student Project Selection page)</p>
+    </div>
+</div>
+{% endblock %}

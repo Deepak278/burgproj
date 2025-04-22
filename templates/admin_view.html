@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="admin-view">
+    <h2>Project Assignments</h2>
+
+    <div class="export-buttons">
+        <a href="{{ url_for('export_csv') }}" class="export-button">Export to CSV</a>
+        <a href="{{ url_for('export_pdf') }}" class="export-button">Export to PDF</a>
+    </div>
+
+    <table class="project-table">
+        <thead>
+            <tr>
+                <th>Project Name</th>
+                <th>Students (Name-Class)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for project, students in project_groups.items() %}
+            <tr>
+                <td>{{ project }}</td>
+                <td>
+                    {% if students %}
+                        {{ students|join(", ") }}
+                    {% else %}
+                        No students assigned
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

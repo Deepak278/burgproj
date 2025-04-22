@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="admin-login">
+    <h2>Admin Login</h2>
+
+    {% if error %}
+    <div class="error-message">
+        {{ error }}
+    </div>
+    {% endif %}
+
+    <form method="POST" action="{{ url_for('admin') }}">
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <button type="submit" class="submit-button">Login</button>
+    </form>
+</div>
+{% endblock %}

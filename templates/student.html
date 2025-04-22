@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="student-form">
+    {% if message %}
+    <div class="success-message">
+        {{ message }}
+    </div>
+    {% endif %}
+
+    <h2>Project Selection Form</h2>
+
+    <form method="POST" action="{{ url_for('student') }}">
+        <div class="form-group">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="class">Your Class:</label>
+            <select id="class" name="class" required>
+                <option value="">-- Select Class --</option>
+                {% for class in classes %}
+                <option value="{{ class }}">{{ class }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Project Choices:</label>
+            <p class="instruction">Select your top 3 project choices</p>
+
+            <div class="choice-group">
+                <label for="choice1">1st Choice:</label>
+                <select id="choice1" name="choice1" required>
+                    <option value="">-- Select Project --</option>
+                    {% for project in projects %}
+                    <option value="{{ project }}">{{ project }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="choice-group">
+                <label for="choice2">2nd Choice:</label>
+                <select id="choice2" name="choice2" required>
+                    <option value="">-- Select Project --</option>
+                    {% for project in projects %}
+                    <option value="{{ project }}">{{ project }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="choice-group">
+                <label for="choice3">3rd Choice:</label>
+                <select id="choice3" name="choice3" required>
+                    <option value="">-- Select Project --</option>
+                    {% for project in projects %}
+                    <option value="{{ project }}">{{ project }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-button">Submit Choices</button>
+    </form>
+</div>
+{% endblock %}
