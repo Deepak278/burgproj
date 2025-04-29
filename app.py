@@ -6,6 +6,7 @@ from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
 from reportlab.lib import colors
 
 app = Flask(__name__)
+app.config['SERVER_NAME'] = 'localhost:5000'
 app.secret_key = 'your_secret_key_here'
 
 # Configuration
